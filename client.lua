@@ -1,4 +1,4 @@
-local QBCore = exports['hrp-core']:GetCoreObject()
+local QBCore = exports['qb-core']:GetCoreObject()
 local nativetheme = false -- true for NativeUI theme
 local liverymenu = nativetheme and MenuV:CreateMenu('Livery Menu', '', 'topright', 220, 20, 60, 'size-125', 'default', 'menuv', 'liverymenu', 'native') or MenuV:CreateMenu(false, 'Livery Menu', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'liverymenu')
 
