@@ -23,6 +23,12 @@ local livery_button = vehiclemenu:AddButton({
     description = 'Change Vehicle Livery'
 })
 
+local extra_button = vehiclemenu:AddButton({
+    label = 'Extra Options',
+    value = extramenu,
+    description = 'Toggle Vehicle Extras'
+})
+
 livery_button:On('select', function()
     liverymenu:ClearItems()
     local veh = GetVehiclePedIsIn(PlayerPedId())
@@ -35,12 +41,6 @@ livery_button:On('select', function()
             end})
     end
 end)
-
-local extra_button = vehiclemenu:AddButton({
-    label = 'Extra Options',
-    value = extramenu,
-    description = 'Toggle Vehicle Extras'
-})
 
 extra_button:On('select', function()
     extramenu:ClearItems()
@@ -59,9 +59,8 @@ extra_button:On('select', function()
     end
 end)
 
-local extraToggle = false
 RegisterNetEvent('mystic-vehiclemenu:client:extraToggle', function(i)
-    extraToggle = not extraToggle
     local veh = GetVehiclePedIsIn(PlayerPedId())
+    local extraToggle = IsVehicleExtraTurnedOn(veh, i)
     SetVehicleExtra(veh, i, extraToggle)
 end)
