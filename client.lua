@@ -8,7 +8,7 @@ RegisterCommand('vehiclemenu', function()
     local PlayerData = QBCore.Functions.GetPlayerData()
     local ped = PlayerPedId()
     local veh = GetVehiclePedIsIn(ped)
-    if PlayerData.job.name == 'police' then
+    if PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance' then
         if IsPedInAnyVehicle(ped) and GetPedInVehicleSeat(veh, -1) == ped then
             MenuV:OpenMenu(vehiclemenu)
         end
